@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% import 'macros.html' as macro%}
+
+<!-- Styles block -->
+
+{% block styles %}
+    {{ super() }}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="container">
+        <!-- Popular movie -->
+        <h3> Popular Movies</h3>
+        <ul>
+            {{ macro.displayMovieList(popular)}}
+        </ul>
+    </div>
+    <div class="container">
+        <!-- Upcoming movie  -->
+        <h3> Upcoming Movies </h3>
+        <ul>
+            {{ macro.displayMovieList(upcoming)}}
+        </ul>
+    </div>
+    <div class="container">
+         <!-- Now showing movie -->
+         <h3>Now Showing</h3>
+         <ul>
+             {{ macro.displayMovieList(now_showing)}}
+         </ul>
+    </div>   
+</div>
+
+    
+{% endblock %}
+   
